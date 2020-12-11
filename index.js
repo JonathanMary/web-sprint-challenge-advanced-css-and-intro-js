@@ -348,29 +348,30 @@ The function should console.log 50 chunks of HTML code that match the structure 
 
 ‼️ You do **NOT** need to get these to display on your page, but you can copy and paste the result into your HTML file if you'd like to see what that would look like. */
 
-/*function getHTML(data){
-  const result = "";
-  console.log(data);
+function getHTML(data){
+  const result = [];
+  //console.log(data);
   var x;
   for(x in data){
-    let name = [data][x]['name'];
-    //let wiki = [data][x]['wikipedia'];
-    //let bio = [data][x]['bio'];
-    console.log(name);
-    result.push(
-    `<div id="artist">
-    <div class="image">
-    <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/starry-night-by-vincent-van-gogh-vincent-van-gogh.jpg"/>
-    </div>
-    <div class = "name">
-    <a href="${wiki}"> ${name}</a>
-    </div>
-    <div class = "bio">${bio}</div>
-    </div>`);
-  }
-  //return result;
+    let name = data[x]['name'];
+    let wiki = data[x]['wikipedia'];
+    let bio = data[x]['bio'];
+    //console.log(bio);
+    result.push(`
+      <div id="artist">
+      <div class="image">
+        <img src="assets/${name}.jpg}"/>
+      </div>
+      <div class = "name">
+        <a href="${wiki}"> ${name}</a>
+      </div>
+      <div class = "bio">${bio}</div>
+      </div>
+      `);
+    }
+  return result;
 }
-getHTML(artists);*/
+//console.log(getHTML(artists));
 
 /* 💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪
 Create a function called `randomize` that takes a data array as an argument and returns a the same array in a randomized order. */
@@ -389,9 +390,15 @@ function randomize(data){
 
  /* 💪💪💪💪💪💪 STRETCH 3: 💪💪💪💪💪💪
  Use advanced array methods (.map, .reduce, .filer) to refactor your MVP code (create an array of all artists born in the 1900s with .filter, for example) */
+let result = [];
+function many(data){
+  if(data["paintings"] > 100){
+    result.push(data["name"]);
+  }
+}
+artists.filter(many);
+//console.log(result);
 
- 
- 
  
  /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑*/
  function foo(){
